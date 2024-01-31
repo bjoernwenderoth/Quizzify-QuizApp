@@ -9,10 +9,10 @@ let questions = [
     },
     {
         "question": "Welches Element wird verwendet, um Überschriften in HTML-Dokumenten darzustellen?",
-        "answer1": "<header>",
-        "answer2": "<title>",
-        "answer3": "<h1>",
-        "answer4": "<bold>",
+        "answer1": "&lt;header&gt;",
+        "answer2": "&lt;title&gt;",
+        "answer3": "&lt;h1&gt;",
+        "answer4": "&lt;bold&gt;",
         "right_answer": 3
     },
     {
@@ -49,15 +49,25 @@ function init() {
     showQuestion();
 }
 
-function showQuestion() {
-    let question = questions[currentQuestion];
-    document.getElementById('question-text').innerHTML = question['question'];
-    document.getElementById('answer_1').innerHTML = question['answer1'];
-    document.getElementById('answer_2').innerHTML = question['answer2'];
-    document.getElementById('answer_3').innerHTML = question['answer3'];
-    document.getElementById('answer_4').innerHTML = question['answer4'];
 
+function showQuestion() {
+
+    if (currentQuestion >= questions.length) {
+        
+
+        
+    } else {
+        let question = questions[currentQuestion];
+
+        document.getElementById('question-number').innerHTML = currentQuestion + 1;
+        document.getElementById('question-text').innerHTML = question['question'];
+        document.getElementById('answer_1').innerHTML = question['answer1'];
+        document.getElementById('answer_2').innerHTML = question['answer2'];
+        document.getElementById('answer_3').innerHTML = question['answer3'];
+        document.getElementById('answer_4').innerHTML = question['answer4'];
+    }
 }
+
 
 function answer(selection) {
     let question = questions[currentQuestion];
@@ -73,8 +83,22 @@ function answer(selection) {
     document.getElementById('next-button').disabled = false;
 }
 
+
 function nextQuestion() {
-    
     currentQuestion++;
+    document.getElementById('next-button').disabled = true;
+    resetAnswerButtons();
     showQuestion();
+}
+
+
+function resetAnswerButtons() {
+    document.getElementById('answer_1').parentNode.classList.remove('bg-danger');
+    document.getElementById('answer_1').parentNode.classList.remove('bg-success');
+    document.getElementById('answer_2').parentNode.classList.remove('bg-danger');
+    document.getElementById('answer_2').parentNode.classList.remove('bg-success');
+    document.getElementById('answer_3').parentNode.classList.remove('bg-danger');
+    document.getElementById('answer_3').parentNode.classList.remove('bg-success');
+    document.getElementById('answer_4').parentNode.classList.remove('bg-danger');
+    document.getElementById('answer_4').parentNode.classList.remove('bg-success');
 }
