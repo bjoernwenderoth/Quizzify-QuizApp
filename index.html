@@ -17,7 +17,7 @@
         crossorigin="anonymous"></script>
 </head>
 
-<body>
+<body onload="init()">
 
     <nav class="navbar bg-body-tertiary">
         <div class="container-fluid">
@@ -37,30 +37,34 @@
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
-                        <h5 class="card-title">01 / 10</h5>
-                        <h3>Was ist denn nun die Frage</h3>
-                        <div class="card border-radius">
-                            <div class="card-body answer">
-                                Antwort
+                        <h5 class="card-title"><b>1</b> von <b id="all-questions"></b> Fragen</h5>
+
+                        <div class="d_flex_c_c">
+                            <h3 id="question-text"></h3>
+                            <div class="card border-radius">
+                                <div id="answer_1" class="card-body answer" onclick="answer('answer_1')">
+
+                                </div>
                             </div>
-                        </div>
-                        <div class="card border-radius">
-                            <div class="card-body answer">
-                                Antwort
+                            <div class="card border-radius">
+                                <div id="answer_2" class="card-body answer" onclick="answer('answer_2')">
+
+                                </div>
                             </div>
-                        </div>
-                        <div class="card border-radius">
-                            <div class="card-body answer">
-                                Antwort
+                            <div class="card border-radius">
+                                <div id="answer_3" class="card-body answer" onclick="answer('answer_3')">
+
+                                </div>
                             </div>
-                        </div>
-                        <div class="card border-radius">
-                            <div class="card-body answer">
-                                Antwort
+                            <div class="card border-radius">
+                                <div id="answer_4" class="card-body answer" onclick="answer('answer_4')">
+
+                                </div>
                             </div>
+
                         </div>
                         <div class="button-position-right">
-                            <button type="button" class="btn btn-secondary bgcolor-6A4CA4">Nächste Frage</button>
+                            <button onclick="nextQuestion()" id="next-button" disabled type="button" class="btn btn-secondary bgcolor-6A4CA4">Nächste Frage</button>
                         </div>
                     </div>
                 </div>
