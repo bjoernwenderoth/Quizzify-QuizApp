@@ -40,8 +40,7 @@ h3 {
 }
 
 .card-style {
-    width: 60rem !important;
-    max-width: fit-content !important; 
+
     height: 600px;
     background-image: linear-gradient(to right bottom, #7468ca, #7e67c8, #8767c5, #8f66c3, #9766c0, #9764bf, #9761be, #975fbd, #905abe, #8855bf, #8050c0, #774bc1);
 }
@@ -55,7 +54,7 @@ h3 {
     display: flex;
     justify-content: center;
     background-color: rgba(245, 245, 245, 0.295);
-    
+
 }
 
 .answer:hover {
@@ -87,7 +86,8 @@ h3 {
     align-items: center;
 }
 
-.bg-success, .bg-danger {
+.bg-success,
+.bg-danger {
     color: whitesmoke !important;
 }
 
@@ -96,4 +96,46 @@ h3 {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.end-screen {
+    text-align: center;
+}
+
+.end-screen img {
+    width: 160px;
+    margin: 30px;
+}
+
+.progress-bar {
+    background-color: #915BBE !important;
+}
+
+
+@media(max-width:768px)  {
+    .welcome-page {
+        text-align: center;
+        margin-top: 100px !important;
+        margin-bottom: 60px;
+    }
+
+    .col-md-4 {
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+    }
+
+    .card-body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .card-title {
+        margin: 20px 0px 50px 0px !important;
+    }
+
+    .button-position-right {
+        margin: 30px 0px 30px 0px !important;
+    }
 }

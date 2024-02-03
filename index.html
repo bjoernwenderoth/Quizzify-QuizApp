@@ -28,46 +28,53 @@
     </nav>
 
     <div class="quiz-container">
-        <div class="card card-style mb-3" style="max-width: 540px;">
+        <div class="card card-style mb-3" style="max-width: 60rem;">
+        
             <div class="row center test g-0">
-                <div class="col-md-4">
-                    <h2>Wilkommen bei dem <b>Quizzify!</b></h2>
+                <div class="col-md-4 welcome-page">
+                    <h2>Wilkommen bei <b>QUIZZIFY!</b></h2>
                     <span>Dem Frontend Quiz für Jedermann!</span>
                 </div>
+
                 <div class="col-md-8">
-                    <div class="card-body">
+                    <div class="card-body end-screen" id="endScreen" style="display: none;">
+                        <h2><b>QUIZ BEENDET!</b></h2>
+                        <img src="/img/trophyy.png" alt="">
+                        <div>
+                            Du hast <b id="rightAnswersEndScreen"></b> von <b id="allQuestionsEndScreen"></b> Fragen beantwortet.
+                        </div>
+                        <button onclick="restartGame()" id="restart" style="margin: 24px;" type="button"
+                        class="btn btn-secondary bgcolor-6A4CA4">Erneut spielen</button>
+                    </div>
+
+                    <div class="card-body" id="questionBody">
                         <h5 class="card-title"><b id="question-number">1</b> von <b id="all-questions"></b> Fragen</h5>
 
-                        <div class="d_flex_c_c">
+                        <div class="d_flex_c_c" id="">
                             <h3 id="question-text"></h3>
                             <div class="card border-radius">
-                                <div id="answer_1" class="card-body answer" onclick="answer('answer_1')">
-
-                                </div>
+                                <div id="answer_1" class="card-body answer" onclick="answer('answer_1')"></div>
                             </div>
                             <div class="card border-radius">
-                                <div id="answer_2" class="card-body answer" onclick="answer('answer_2')">
-
-                                </div>
+                                <div id="answer_2" class="card-body answer" onclick="answer('answer_2')"></div>
                             </div>
                             <div class="card border-radius">
-                                <div id="answer_3" class="card-body answer" onclick="answer('answer_3')">
-
-                                </div>
+                                <div id="answer_3" class="card-body answer" onclick="answer('answer_3')"></div>
                             </div>
                             <div class="card border-radius">
-                                <div id="answer_4" class="card-body answer" onclick="answer('answer_4')">
-
-                                </div>
+                                <div id="answer_4" class="card-body answer" onclick="answer('answer_4')"></div>
                             </div>
-
                         </div>
                         <div class="button-position-right">
-                            <button onclick="nextQuestion()" id="next-button" disabled type="button" class="btn btn-secondary bgcolor-6A4CA4">Nächste Frage</button>
+                            <button onclick="nextQuestion()" id="next-button" disabled type="button"
+                                class="btn btn-secondary bgcolor-6A4CA4">Nächste Frage</button>
                         </div>
                     </div>
+               
                 </div>
-            </div>
+            </div>     <div class="progress">
+                <div class="progress-bar" role="progressbar" id="progressbar" style="width: 0%;" ></div>
+            </div>    
         </div>
     </div>
 </body>
