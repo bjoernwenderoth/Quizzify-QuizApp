@@ -114,6 +114,8 @@ function showEndScreen() {
     document.getElementById('questionBody').style = 'display: none'
     document.getElementById('allQuestionsEndScreen').innerHTML = questions.length;
     document.getElementById('rightAnswersEndScreen').innerHTML = rightQuestions;
+    document.getElementById('welcome-page').style = 'display: none';
+    document.getElementById('show-endscreen').classList.add('endscreen-100');
 }
 
 
@@ -125,6 +127,9 @@ function UpdateToNextQuestion() {
     document.getElementById('answer_2').innerHTML = question['answer2'];
     document.getElementById('answer_3').innerHTML = question['answer3'];
     document.getElementById('answer_4').innerHTML = question['answer4'];
+    document.querySelectorAll('#answer_1, #answer_2, #answer_3, #answer_4').forEach(element => {
+        element.classList.remove('disabled');
+    });
 }
 
 
@@ -142,15 +147,29 @@ function answer(selection) {
     let idOfRightAnswer = `answer_${question['right_answer']}`;
 
     if (selectedQuestionNumber == question['right_answer']) {
-        rightQuestions++;
-        document.getElementById(selection).parentNode.classList.add('bg-success');
-        AUDIO_CORRECT.play();
+        handleCorrectAnswer(selection)
     } else {
-        document.getElementById(selection).parentNode.classList.add('bg-danger');
-        document.getElementById(idOfRightAnswer).parentNode.classList.add('bg-success');
-        AUDIO_FALSE.play();
+        handleIncorrectAnswer(selection, idOfRightAnswer)
     }
     document.getElementById('next-button').disabled = false;
+}
+
+
+function handleCorrectAnswer(selection) {
+    rightQuestions++;
+    document.getElementById(selection).parentNode.classList.add('bg-success');
+    document.getElementById(selection).classList.add('disabled');
+    AUDIO_CORRECT.volume = 0.2;
+    AUDIO_CORRECT.play();
+}
+
+
+function handleIncorrectAnswer(selection, idOfRightAnswer) {
+    document.getElementById(selection).parentNode.classList.add('bg-danger');
+    document.getElementById(idOfRightAnswer).parentNode.classList.add('bg-success');
+    document.getElementById(idOfRightAnswer).classList.add('disabled');
+    AUDIO_FALSE.volume = 0.2;
+    AUDIO_FALSE.play();
 }
 
 
